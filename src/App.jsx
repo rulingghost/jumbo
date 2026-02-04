@@ -338,140 +338,142 @@ function App() {
               animate="visible"
               style={(slide.id === 16) ? { display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' } : {}}
             >
-              <div className="text-side" style={{ position: 'relative' }}>
-                {slide.id === 5 && (
-                  <motion.button
-                    whileHover={{ scale: 1.1, x: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setShowInSlidePreview(!showInSlidePreview)}
-                    style={{
-                      position: 'absolute',
-                      right: '-80px',
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: '50%',
-                      cursor: 'pointer',
-                      color: 'rgba(255, 255, 255, 0.4)',
-                      zIndex: 100,
-                      padding: '0.4rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      backdropFilter: 'blur(10px)'
-                    }}
-                    title={showInSlidePreview ? "Görseli Kapat" : "Görseli Göster"}
-                  >
-                    {showInSlidePreview ? <ArrowRightCircle size={48} /> : <ArrowLeftCircle size={48} />}
-                  </motion.button>
-                )}
+              {slide.id !== 16 && (
+                <div className="text-side" style={{ position: 'relative' }}>
+                  {slide.id === 5 && (
+                    <motion.button
+                      whileHover={{ scale: 1.1, x: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => setShowInSlidePreview(!showInSlidePreview)}
+                      style={{
+                        position: 'absolute',
+                        right: '-80px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        borderRadius: '50%',
+                        cursor: 'pointer',
+                        color: 'rgba(255, 255, 255, 0.4)',
+                        zIndex: 100,
+                        padding: '0.4rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                      title={showInSlidePreview ? "Görseli Kapat" : "Görseli Göster"}
+                    >
+                      {showInSlidePreview ? <ArrowRightCircle size={48} /> : <ArrowLeftCircle size={48} />}
+                    </motion.button>
+                  )}
 
-                <motion.span variants={itemVariants} className="tag">
-                  {slide.tag}
-                </motion.span>
-                
-                <motion.h1 
-                  variants={itemVariants} 
-                  style={slide.type !== 'cover' ? { fontSize: '3.5rem', textTransform: 'none', letterSpacing: '-1px' } : {}}
-                >
-                  {slide.title}
-                </motion.h1>
-
-                {slide.subtitle && (
-                  <motion.p 
-                    variants={itemVariants}
-                    style={{ fontSize: '1.6rem', color: 'var(--accent-primary)', marginBottom: '3rem', fontWeight: 500 }}
+                  <motion.span variants={itemVariants} className="tag">
+                    {slide.tag}
+                  </motion.span>
+                  
+                  <motion.h1 
+                    variants={itemVariants} 
+                    style={slide.type !== 'cover' ? { fontSize: '3.5rem', textTransform: 'none', letterSpacing: '-1px' } : {}}
                   >
-                    {slide.subtitle}
-                  </motion.p>
-                )}
+                    {slide.title}
+                  </motion.h1>
 
-                {slide.type === 'cover' ? (
-                  <motion.div 
-                    variants={containerVariants}
-                    style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}
-                  >
-                    {slide.items && slide.items.map((item, i) => (
-                      <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(255,255,255,0.02)' }}>
-                        <div style={{ color: 'var(--accent-primary)' }}>{item.icon}</div>
-                        <span style={{ fontSize: '1rem', fontWeight: 600 }}>{item.text}</span>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                ) : (
-                  <motion.div variants={itemVariants} className="glass-card" style={slide.id === 16 ? { padding: '2rem' } : {}}>
-                    <div className={slide.id === 16 ? "grid-1" : "grid-2"}>
+                  {slide.subtitle && (
+                    <motion.p 
+                      variants={itemVariants}
+                      style={{ fontSize: '1.6rem', color: 'var(--accent-primary)', marginBottom: '3rem', fontWeight: 500 }}
+                    >
+                      {slide.subtitle}
+                    </motion.p>
+                  )}
+
+                  {slide.type === 'cover' ? (
+                    <motion.div 
+                      variants={containerVariants}
+                      style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}
+                    >
                       {slide.items && slide.items.map((item, i) => (
-                        <motion.div 
-                          key={i} 
-                          variants={itemVariants}
-                          whileHover={{ x: 10, transition: { duration: 0.2 } }}
-                          style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem', alignItems: 'flex-start' }}
-                        >
-                          <div style={{ 
-                            padding: '1.2rem', 
-                            background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1))', 
-                            border: '1px solid rgba(0, 242, 254, 0.2)', 
-                            borderRadius: '20px', 
-                            color: 'var(--accent-primary)',
-                            boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
-                          }}>
-                            {React.cloneElement(item.icon, { size: 28 })}
-                          </div>
-                          <div style={{ paddingTop: '0.4rem' }}>
-                            <p style={{ color: 'white', fontWeight: 500, fontSize: '1.3rem', lineHeight: 1.4 }}>{item.text}</p>
-                          </div>
+                        <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(255,255,255,0.02)' }}>
+                          <div style={{ color: 'var(--accent-primary)' }}>{item.icon}</div>
+                          <span style={{ fontSize: '1rem', fontWeight: 600 }}>{item.text}</span>
                         </motion.div>
                       ))}
-                    </div>
-                  </motion.div>
-                )}
-
-                {/* Overlaid Dashboard Preview for Slide 5 */}
-                <AnimatePresence>
-                  {slide.id === 5 && showInSlidePreview && (
-                    <motion.div 
-                      initial={{ x: 200, opacity: 0, scale: 0.9 }}
-                      animate={{ x: 600, y: -180, opacity: 1, scale: 1 }}
-                      exit={{ x: 200, opacity: 0, scale: 0.9 }}
-                      transition={{ type: 'spring', damping: 25, stiffness: 120 }}
-                      style={{ 
-                        position: 'absolute', 
-                        width: '850px',
-                        zIndex: 200,
-                        pointerEvents: 'none',
-                        top: '50%'
-                      }}
-                    >
-                      <img 
-                        src="/dashboard_preview.jpg" 
-                        alt="Dashboard Preview" 
-                        style={{ 
-                          width: '100%', 
-                          borderRadius: '32px', 
-                          boxShadow: '0 50px 100px rgba(0,0,0,0.9)',
-                          border: '2px solid rgba(255,255,255,0.1)',
-                          backdropFilter: 'blur(20px)'
-                        }} 
-                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div variants={itemVariants} className="glass-card">
+                      <div className="grid-2">
+                        {slide.items && slide.items.map((item, i) => (
+                          <motion.div 
+                            key={i} 
+                            variants={itemVariants}
+                            whileHover={{ x: 10, transition: { duration: 0.2 } }}
+                            style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem', alignItems: 'flex-start' }}
+                          >
+                            <div style={{ 
+                              padding: '1.2rem', 
+                              background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1))', 
+                              border: '1px solid rgba(0, 242, 254, 0.2)', 
+                              borderRadius: '20px', 
+                              color: 'var(--accent-primary)',
+                              boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                            }}>
+                              {React.cloneElement(item.icon, { size: 28 })}
+                            </div>
+                            <div style={{ paddingTop: '0.4rem' }}>
+                              <p style={{ color: 'white', fontWeight: 500, fontSize: '1.3rem', lineHeight: 1.4 }}>{item.text}</p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
                     </motion.div>
                   )}
-                </AnimatePresence>
-              </div>
+
+                  {/* Overlaid Dashboard Preview for Slide 5 */}
+                  <AnimatePresence>
+                    {slide.id === 5 && showInSlidePreview && (
+                      <motion.div 
+                        initial={{ x: 200, opacity: 0, scale: 0.9 }}
+                        animate={{ x: 600, y: -180, opacity: 1, scale: 1 }}
+                        exit={{ x: 200, opacity: 0, scale: 0.9 }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 120 }}
+                        style={{ 
+                          position: 'absolute', 
+                          width: '850px',
+                          zIndex: 200,
+                          pointerEvents: 'none',
+                          top: '50%'
+                        }}
+                      >
+                        <img 
+                          src="/dashboard_preview.jpg" 
+                          alt="Dashboard Preview" 
+                          style={{ 
+                            width: '100%', 
+                            borderRadius: '32px', 
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.9)',
+                            border: '2px solid rgba(255,255,255,0.1)',
+                            backdropFilter: 'blur(20px)'
+                          }} 
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
 
               {slide.id === 16 && (
                 <motion.div 
-                  initial={{ x: 100, opacity: 0, scale: 0.8 }}
-                  animate={{ x: 0, opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
                   style={{ 
-                    width: '100%', 
-                    height: '600px', 
-                    borderRadius: '24px', 
-                    overflow: 'hidden',
-                    boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw', 
+                    height: '100vh', 
+                    zIndex: 5,
                     background: '#000'
                   }}
                 >
