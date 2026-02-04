@@ -537,8 +537,8 @@ function App() {
         )}
       </AnimatePresence>
       
-      <div style={{ position: 'fixed', top: '2.5rem', left: '2.5rem', zIndex: 100, opacity: 0.5 }}>
-         <Building2 color="#fff" size={32} />
+      <div style={{ position: 'fixed', top: '2.5rem', left: '2.5rem', zIndex: 100, opacity: 0.8 }}>
+         <img src="/sarfea_logo.png" alt="SARFEA Logo" style={{ height: '40px', width: 'auto' }} />
       </div>
     </div>
   );
