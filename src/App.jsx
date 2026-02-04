@@ -336,7 +336,7 @@ function App() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              style={(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) ? { display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' } : {}}
+              style={(slide.id === 16) ? { display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' } : {}}
             >
               <div className="text-side" style={{ position: 'relative' }}>
                 {slide.id === 5 && (
@@ -346,21 +346,27 @@ function App() {
                     onClick={() => setShowInSlidePreview(!showInSlidePreview)}
                     style={{
                       position: 'absolute',
-                      right: '-100px',
+                      right: '-80px',
                       top: '50%',
                       transform: 'translateY(-50%)',
-                      background: 'none',
-                      border: 'none',
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '50%',
                       cursor: 'pointer',
-                      color: 'var(--accent-primary)',
-                      zIndex: 10
+                      color: 'rgba(255, 255, 255, 0.4)',
+                      zIndex: 100,
+                      padding: '0.4rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backdropFilter: 'blur(10px)'
                     }}
                     title={showInSlidePreview ? "Görseli Kapat" : "Görseli Göster"}
                   >
-                    {showInSlidePreview ? <ArrowLeftCircle size={48} /> : <ArrowRightCircle size={48} />}
+                    {showInSlidePreview ? <ArrowRightCircle size={48} /> : <ArrowLeftCircle size={48} />}
                   </motion.button>
                 )}
-                
+
                 <motion.span variants={itemVariants} className="tag">
                   {slide.tag}
                 </motion.span>
@@ -394,8 +400,8 @@ function App() {
                     ))}
                   </motion.div>
                 ) : (
-                  <motion.div variants={itemVariants} className="glass-card" style={(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) ? { padding: '2rem' } : {}}>
-                    <div className={(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) ? "grid-1" : "grid-2"}>
+                  <motion.div variants={itemVariants} className="glass-card" style={slide.id === 16 ? { padding: '2rem' } : {}}>
+                    <div className={slide.id === 16 ? "grid-1" : "grid-2"}>
                       {slide.items && slide.items.map((item, i) => (
                         <motion.div 
                           key={i} 
@@ -421,9 +427,40 @@ function App() {
                     </div>
                   </motion.div>
                 )}
+
+                {/* Overlaid Dashboard Preview for Slide 5 */}
+                <AnimatePresence>
+                  {slide.id === 5 && showInSlidePreview && (
+                    <motion.div 
+                      initial={{ x: 200, opacity: 0, scale: 0.9 }}
+                      animate={{ x: 600, y: -180, opacity: 1, scale: 1 }}
+                      exit={{ x: 200, opacity: 0, scale: 0.9 }}
+                      transition={{ type: 'spring', damping: 25, stiffness: 120 }}
+                      style={{ 
+                        position: 'absolute', 
+                        width: '850px',
+                        zIndex: 200,
+                        pointerEvents: 'none',
+                        top: '50%'
+                      }}
+                    >
+                      <img 
+                        src="/dashboard_preview.jpg" 
+                        alt="Dashboard Preview" 
+                        style={{ 
+                          width: '100%', 
+                          borderRadius: '32px', 
+                          boxShadow: '0 50px 100px rgba(0,0,0,0.9)',
+                          border: '2px solid rgba(255,255,255,0.1)',
+                          backdropFilter: 'blur(20px)'
+                        }} 
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
-              {(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) && (
+              {slide.id === 16 && (
                 <motion.div 
                   initial={{ x: 100, opacity: 0, rotateY: -20 }}
                   animate={{ x: 0, opacity: 1, rotateY: 0 }}
@@ -432,7 +469,7 @@ function App() {
                   style={{ perspective: '1000px' }}
                 >
                   <img 
-                    src={slide.id === 5 ? "/dashboard_preview.jpg" : slide.bg} 
+                    src={slide.bg} 
                     alt="Dashboard Preview" 
                     style={{ 
                       width: '100%', 
