@@ -233,11 +233,11 @@ const slides = [
   {
     id: 15,
     type: 'cover',
-    bg: '/bg15.png',
+    bg: '/sarfea_logo.png',
     tag: 'İLETİŞİM',
     title: 'Teşekkür Ederiz',
     subtitle: 'Sorularınız ve Demo Talepleriniz İçin Buradayız',
-    author: 'JUMBO CRM SOLUTIONS',
+    author: 'SARFEA',
     date: 'February 2026',
     notes: 'Zaman ayırdığınız için teşekkürler. Şirketinize özel iş akışlarını netleştirmek için demo sürecini başlatmaya hazırız.'
   }
@@ -302,9 +302,12 @@ function App() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="slide active"
           style={{ 
-            backgroundImage: `linear-gradient(rgba(5, 6, 10, 0.75), rgba(5, 6, 10, 0.85)), url(${slide.bg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundImage: slide.id === 15 
+              ? `linear-gradient(rgba(5, 6, 10, 0.4), rgba(5, 6, 10, 0.6)), url(${slide.bg})`
+              : `linear-gradient(rgba(5, 6, 10, 0.75), rgba(5, 6, 10, 0.85)), url(${slide.bg})`,
+            backgroundSize: slide.id === 15 ? 'contain' : 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         >
           <div className="slide-content">
