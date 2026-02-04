@@ -338,7 +338,7 @@ function App() {
                   variants={containerVariants}
                   style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}
                 >
-                  {slide.items.map((item, i) => (
+                  {slide.items && slide.items.map((item, i) => (
                     <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(255,255,255,0.02)' }}>
                       <div style={{ color: 'var(--accent-primary)' }}>{item.icon}</div>
                       <span style={{ fontSize: '1rem', fontWeight: 600 }}>{item.text}</span>
@@ -348,7 +348,7 @@ function App() {
               ) : (
                 <motion.div variants={itemVariants} className="glass-card">
                   <div className="grid-2">
-                    {slide.items.map((item, i) => (
+                    {slide.items && slide.items.map((item, i) => (
                       <motion.div 
                         key={i} 
                         variants={itemVariants}
