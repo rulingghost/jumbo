@@ -4,15 +4,16 @@ import {
   ChevronLeft, ChevronRight, MessageSquare, LayoutDashboard, Users, Box, MapPin, 
   Calculator, BarChart3, Brain, Building2, ShieldCheck, Smartphone, Code2, 
   CheckCircle2, Target, Layers, Zap, Video, Fingerprint, CreditCard, PackageSearch, 
-  TrendingUp, Wallet, FileText
+  TrendingUp, Wallet, FileText, Globe, Cpu, Award
 } from 'lucide-react';
 
 const slides = [
   {
     id: 1,
     type: 'cover',
-    bg: '/media0.png',
-    title: 'JUMBO CRM ÇÖZÜMÜ SUNUMU',
+    bg: '/bg1.png',
+    tag: 'JUMBO CRM SOLUTIONS',
+    title: 'KURUMSAL CRM ÇÖZÜMÜ',
     subtitle: 'Tüm İş Süreçlerinizi Tek Panelden Yönetin',
     items: [
       { icon: <LayoutDashboard size={20} />, text: 'Yönetim' },
@@ -20,208 +21,243 @@ const slides = [
       { icon: <Box size={20} />, text: 'Stok & Şube Takibi' },
       { icon: <Calculator size={20} />, text: 'Muhasebe' },
       { icon: <BarChart3 size={20} />, text: 'Raporlama' },
-      { icon: <Brain size={20} />, text: 'Yapay Zeka Destekli Analizler' }
+      { icon: <Brain size={20} />, text: 'AI Destekli' }
     ],
-    notes: 'Hoş geldiniz. Bugün sizlere JUMBO CRM çözümümüzü tanıtacağız. Bu sistem, kurumunuzun tüm operasyonel damarlarını tek bir merkezde toplayan dijital bir omurga niteliğindedir.'
+    notes: 'JUMBO CRM çözümümüze hoş geldiniz. Bu sistem, modern işletmelerin dijital dönüşüm yolculuğunda merkezi yönetim birimi olarak konumlandırılmıştır.'
   },
   {
     id: 2,
     type: 'content',
-    bg: '/media1.png',
-    tag: 'CRM NEDİR?',
-    title: 'Customer & Company Resource Management',
+    bg: '/bg2.png',
+    tag: 'TANIM',
+    title: 'CRM Nedir?',
+    subtitle: 'Customer & Company Resource Management',
     items: [
-      { icon: <Building2 />, text: 'Tüm şirket operasyonlarını tek merkezden yönetmeyi sağlar.' },
+      { icon: <Globe />, text: 'Tüm şirket operasyonlarını tek merkezden yönetmeyi sağlar.' },
       { icon: <Target />, text: 'Veriye dayalı hızlı ve doğru karar alma mekanizması sunar.' },
       { icon: <Zap />, text: 'Şube, stok, İK ve finansal süreçlerde maksimum verimlilik hedefler.' },
       { icon: <Brain />, text: 'Yapay zeka destekli maliyet ve kârlılık optimizasyonu sağlar.' }
     ],
-    notes: 'CRM bizim için sadece müşteri yönetimi değil, aynı zamanda şirket kaynaklarının (personel, stok, finans) bütünleşik yönetimidir.'
+    notes: 'Bizim CRM yaklaşımımız sadece müşteri odaklı değil, aynı zamanda operasyonel mükemmeliyet odaklıdır.'
   },
   {
     id: 3,
     type: 'content',
+    bg: '/bg3.png',
     tag: 'MİMARİ',
     title: 'Sistem Genel Yapısı',
+    subtitle: 'Geleceğe Hazır Teknik Altyapı',
     items: [
-      { icon: <Layers />, text: 'Modüler ve ölçeklenebilir yapı (Siz büyüdükçe sistem büyür).' },
-      { icon: <Building2 />, text: 'Küçük / Orta / Büyük ölçekli tüm firmalara uygun esneklik.' },
-      { icon: <ShieldCheck />, text: 'Rol bazlı detaylı yetkilendirme ve güvenlik.' },
-      { icon: <Smartphone />, text: 'Web & Mobil uyumlu kullanıcı deneyimi.' },
-      { icon: <Code2 />, text: 'API & Donanım entegrasyonlarına açık modern altyapı.' }
+      { icon: <Layers />, text: 'Modüler ve ölçeklenebilir yapı (Microservices Ready).' },
+      { icon: <Building2 />, text: 'Küçük / Orta / Büyük ölçekli tüm firmalara uygun.' },
+      { icon: <ShieldCheck />, text: 'Rol bazlı tam yetkilendirme ve audit log sistemi.' },
+      { icon: <Smartphone />, text: 'Cross-platform Web & Mobil uyumlu arayüzler.' },
+      { icon: <Code2 />, text: 'API & 3rd Party donanım entegrasyonlarına açık.' }
     ],
-    notes: 'Sistemimiz modüler bir yapıdadır. Bu sayede sadece ihtiyacınız olan modülleri kullanabilir, ileride yeni özellikler ekleyebilirsiniz.'
+    notes: 'Teknik mimarimiz, yoğun trafiği ve büyük veriyi saniyeler içinde işleyebilecek şekilde kurgulanmıştır.'
   },
   {
     id: 4,
     type: 'content',
-    bg: '/media3.png',
-    tag: 'YÖNETİM',
+    bg: '/bg4.png',
+    tag: 'KONTROL',
     title: 'Ana Sayfa (Admin Paneli)',
+    subtitle: 'Şirketinizin Dijital Kokpiti',
     items: [
-      { icon: <LayoutDashboard />, text: 'Merkezi Yönetim Paneli: Tüm sistemi tek bakışta görün.' },
-      { icon: <Users />, text: 'Kullanıcı ekleme ve modül bazlı yetkilendirme.' },
-      { icon: <Wallet />, text: 'Aylık / Yıllık gelir - gider özetleri.' },
-      { icon: <MapPin />, text: 'Mağaza ve şehir bazlı gelişmiş filtreleme.' },
-      { icon: <TrendingUp />, text: 'Anlık finansal durum ve canlı performans göstergeleri.' }
+      { icon: <LayoutDashboard />, text: 'Merkezi Yönetim Paneli: Canlı performans izleme.' },
+      { icon: <Users />, text: 'Kullanıcı yönetimi ve dinamik rol tanımlama.' },
+      { icon: <Wallet />, text: 'Aylık / Yıllık gelir - gider projeksiyonları.' },
+      { icon: <MapPin />, text: 'Global, bölgesel ve mağaza bazlı anlık filtreleme.' },
+      { icon: <TrendingUp />, text: 'Kritik finansal KPI ve başarı göstergeleri.' }
     ],
-    notes: 'Admin paneli, karar vericiler için bir "kontrol odası"dır. Şirketin o anki mali nabzını ve şube performanslarını buradan izleyebilirsiniz.'
+    notes: 'Admin paneli, sadece veri göstermez; yöneticiye eyleme geçebileceği anlamlı içgörüler sunar.'
   },
   {
     id: 5,
     type: 'content',
-    tag: 'PERSONEL',
+    bg: '/bg5.png',
+    tag: 'İNSAN KAYNAKLARI',
     title: 'İnsan Kaynakları Yönetimi',
-    subtitle: 'Küçük & Büyük Ölçekli Firmalar İçin Uçtan Uca Takip',
+    subtitle: 'Yetenek ve Performans Odaklı Yönetim',
     items: [
-      { icon: <Layers />, text: 'Organizasyon hiyerarşisi ve birim yönetimi.' },
-      { icon: <Calculator />, text: 'Çalışan maaş, prim ve ödeme yönetimi.' },
-      { icon: <FileText />, text: 'İzin, rapor ve izin talep onay süreçleri.' },
-      { icon: <Users />, text: 'İşe alım ve başvuru takip sistemi (ATS).' },
-      { icon: <CheckCircle2 />, text: 'Performans ve görev bazlı değerlendirme puanları.' }
+      { icon: <Layers />, text: 'Organizasyon şeması ve hiyerarşi kurgulama.' },
+      { icon: <Calculator />, text: 'Maaş, yan haklar ve bordro ön hazırlık süreçleri.' },
+      { icon: <FileText />, text: 'İzin, rapor ve masraf talep onay otomasyonu.' },
+      { icon: <Users />, text: 'İşe alım portalı ve aday havuzu yönetimi.' },
+      { icon: <Award />, text: 'Performans KPI ve 360 derece değerlendirme.' }
     ],
-    notes: 'İK modülümüz, çalışanın işe alımından performans takibine kadar tüm yaşam döngüsünü dijitalleştirir.'
+    notes: 'İnsan kaynağını verimli kullanmak, kârlılığın en gizli anahtarıdır. Biz bu süreci tamamen şeffaf hale getiriyoruz.'
   },
   {
     id: 6,
     type: 'content',
-    bg: '/media4.png',
-    tag: 'ENVANTER',
+    bg: '/bg6.png',
+    tag: 'STOK YÖNETİMİ',
     title: 'Stok Takip Sistemi',
-    subtitle: 'Şirket & Şube Bazlı Gerçek Zamanlı Takip',
+    subtitle: 'Sıfır Hata, Maksimum Kontrol',
     items: [
-      { icon: <PackageSearch />, text: 'Ürün ve malzeme bazlı detaylı stok bilgisi.' },
-      { icon: <Zap />, text: 'Minimum / Maksimum stok alarm sistemi.' },
-      { icon: <TrendingUp />, text: 'Yüzdesel stok düşüş & artış otomatik uyarıları.' },
-      { icon: <Building2 />, text: 'Şube bazlı satış, kâr & zarar tabloları.' },
-      { icon: <BarChart3 />, text: 'Yıllık harcama ve kazanç analiz grafikleri.' }
+      { icon: <PackageSearch />, text: 'Ürün ve sarf malzeme bazlı anlık stok takibi.' },
+      { icon: <Zap />, text: 'Kritik stok seviyesi otomatik alarm mekanizması.' },
+      { icon: <TrendingUp />, text: 'Stok devir hızı ve varyasyon analizleri.' },
+      { icon: <Building2 />, text: 'Şube bazlı anlık kâr & zarar ve fire takibi.' },
+      { icon: <Smartphone />, text: 'Mobil barkod okutma ile hızlı depo sayımı.' }
     ],
-    notes: 'Stok takibi, perakende ve hizmet sektörünün can damarıdır. Sistem kritik seviyeye gelen ürünlerde sizi otomatik olarak uyarır.'
+    notes: 'Sistemimiz, şubeler arasındaki stok dengesini koruyarak gereksiz satın alımların önüne geçer.'
   },
   {
     id: 7,
     type: 'content',
-    tag: 'OPERASYON',
-    title: 'Akıllı Satın Alma & Depo Yönetimi',
+    bg: '/bg7.png',
+    tag: 'SATIN ALMA',
+    title: 'Akıllı Satın Alma & Depo',
+    subtitle: 'Veriye Dayalı Tedarik Yönetimi',
     items: [
-      { icon: <Wallet />, text: 'Tedarikçi fiyat tekliflerinin merkezi karşılaştırılması.' },
-      { icon: <Brain />, text: 'Yapay zeka destekli en kârlı satın alma önerileri.' },
-      { icon: <Box />, text: 'Ana depo → şube talep ve transfer süreçleri.' },
-      { icon: <CheckCircle2 />, text: 'Talep, onay ve teslimat takip ekranları.' }
+      { icon: <Wallet />, text: 'Merkezi satın alma ekranları ve onay hiyerarşisi.' },
+      { icon: <Target />, text: 'Tedarikçi fiyat karşılaştırma ve geçmiş analizleri.' },
+      { icon: <Brain />, text: 'AI Önerisi: En uygun zaman ve fiyatlı alım tahmini.' },
+      { icon: <Box />, text: 'Ana depo → Şube arası talep ve sevk yönetimi.' },
+      { icon: <CheckCircle2 />, text: 'Dijital irsaliye ve teslimat onay süreçleri.' }
     ],
-    notes: 'Satın alma modülümüz, yapay zeka kullanarak geçmiş verilerden hangi tedarikçinin daha karlı olduğunu size önerir.'
+    notes: 'Satın alma modülümüz, şirket içi taleplerin tek kanaldan, bütçe kontrolüyle yapılmasını sağlar.'
   },
   {
     id: 8,
     type: 'content',
-    bg: '/media2.png',
-    tag: 'BÜYÜME',
+    bg: '/bg8.png',
+    tag: 'FRANCHISING',
     title: 'Şube & Franchising Takibi',
+    subtitle: 'Sınırsız Büyüme, Merkezi Denetim',
     items: [
-      { icon: <MapPin />, text: 'Şube listeleri, lokasyon bazlı detay ekranları.' },
-      { icon: <FileText />, text: 'Franchising başvuru ve talep form yönetimi.' },
-      { icon: <TrendingUp />, text: 'Aylık / Yıllık şube kâr – zarar bilançoları.' },
-      { icon: <Calculator />, text: 'Şube bazlı personel ve maaş maliyet analizleri.' },
-      { icon: <Users />, text: 'Görev dağılımları ve şube performans grafikleri.' }
+      { icon: <Globe />, text: 'Şube performans listeleri ve detaylı karne sistemi.' },
+      { icon: <FileText />, text: 'Aday franchise başvuru ve evrak takip süreci.' },
+      { icon: <BarChart3 />, text: 'Aylık / Yıllık şube kâr-zarar bilançoları.' },
+      { icon: <Users />, text: 'Şube personel maliyeti ve verimlilik kıyaslama.' },
+      { icon: <MapPin />, text: 'Harita üzerinde canlı satış yoğunluğu izleme.' }
     ],
-    notes: 'Franchising yapısındaki firmalar için şubeler arası standardizasyon ve finansal denetim sağlar.'
+    notes: 'Şube ağınızı büyütürken markanızın standardını ve finansal izlenebilirliğini korumanızı sağlıyoruz.'
   },
   {
     id: 9,
     type: 'content',
-    tag: 'FİNANS',
+    bg: '/bg9.png',
+    tag: 'MUHASEBE',
     title: 'Muhasebe Modülü',
+    subtitle: 'Finansal Süreçlerde Tam Entegrasyon',
     items: [
-      { icon: <Building2 />, text: 'Tedarikçi ve hizmet sağlayıcı firma yönetimi.' },
-      { icon: <FileText />, text: 'Ürün talep ve dijital faturalandırma süreçleri.' },
-      { icon: <Wallet />, text: 'Cari takip: Firma bazlı alacak – verecek yönetimi.' },
-      { icon: <Brain />, text: 'Şube gelirine göre satın alma kârlılık analizleri.' }
+      { icon: <Building2 />, text: 'Cari Kartlar: Tedarikçi ve müşteri yönetimi.' },
+      { icon: <FileText />, text: 'E-Fatura entegrasyonu ve dijital arşivleme.' },
+      { icon: <Wallet />, text: 'Ödeme ve tahsilat planlama, çek-senet takibi.' },
+      { icon: <Calculator />, text: 'Operasyonel giderlerin otomatik muhasebeleşmesi.' },
+      { icon: <Brain />, text: 'Finansal risk analizi ve nakit akış tahminleme.' }
     ],
-    notes: 'Muhasebe modülümüz operasyonla entegredir. Bir satın alma yapıldığında borç-alacak ilişkisi otomatik kurulur.'
+    notes: 'Muhasebe artık sadece kayıt tutmak değil, veriden finansal güç yaratmaktır.'
   },
   {
     id: 10,
     type: 'content',
-    bg: '/media3.png',
-    tag: 'ANALİZ',
+    bg: '/bg10.png',
+    tag: 'VERİ ANALİZİ',
     title: 'Raporlama Sistemi',
+    subtitle: 'Karmaşık Veriyi Karara Dönüştürün',
     items: [
-      { icon: <FileText />, text: 'Aylık / Yıllık detaylı gider pusulası.' },
-      { icon: <Layers />, text: 'Kalem bazlı harcama ve maliyet detayları.' },
-      { icon: <TrendingUp />, text: 'Firma & ürün bazlı kâr marjı analizleri.' },
-      { icon: <Brain />, text: 'Yapay zeka destekli maliyet öngörü tabloları.' },
-      { icon: <Smartphone />, text: 'Özelleştirilebilir rapor tasarımı ve PDF/Excel çıktı.' }
+      { icon: <FileText />, text: 'Detaylı gelir-gider pusulası ve nakit akış raporu.' },
+      { icon: <Layers />, text: 'Ürün ve kategori bazlı kâr marjı analizleri.' },
+      { icon: <TrendingUp />, text: 'Bölgesel ve dönemsel satış trend grafikleri.' },
+      { icon: <CheckCircle2 />, text: 'Yöneticiye özel dinamik dashboard tasarımları.' },
+      { icon: <Smartphone />, text: 'Otomatik periyodik rapor gönderimi (Email/Sms).' }
     ],
-    notes: 'Veri, işlendiğinde değer kazanır. Raporlama sistemimiz size karar vermeniz için gerekli temiz ve analiz edilmiş bilgiyi sunar.'
+    notes: 'Raporlarımız, dakikalarca bekleten Excel'lerin yerini alan, saniyeler içinde üretilen canlı verilerdir.'
   },
   {
     id: 11,
     type: 'content',
-    tag: 'GELECEK',
-    title: 'Yapay Zeka Destekli Özellikler',
-    subtitle: 'Algoritmalar Sizin İçin Çalışsın',
+    bg: '/bg11.png',
+    tag: 'AI ENGINE',
+    title: 'Yapay Zeka Özellikleri',
+    subtitle: 'Sistemin Akıllı Beyni',
     items: [
-      { icon: <Brain />, text: 'Satın alma karar önerileri ve trend analizleri.' },
-      { icon: <Target />, text: 'Tedarikçi fiyat teklif karşılaştırma algoritmaları.' },
-      { icon: <TrendingUp />, text: 'Gelecek dönem kâr – zarar tahminlemeleri.' },
-      { icon: <Users />, text: 'CV analiz ve adayı pozisyonla eşleştirme önerileri.' },
-      { icon: <Zap />, text: 'Otomatik maliyet optimizasyonu raporları.' }
+      { icon: <Brain />, text: 'Optimum stok ve satın alma zamanlaması önerisi.' },
+      { icon: <Target />, text: 'Tedarikçi puanlama ve teklif optimizasyonu.' },
+      { icon: <TrendingUp />, text: 'Satış tahminleme ve talep yönetimi algoritmaları.' },
+      { icon: <Users />, text: 'CV puanlama ve işe alım karar destek robotu.' },
+      { icon: <Cpu />, text: 'Anomali tespiti: Beklenmedik giderlerde otomatik uyarı.' }
     ],
-    notes: 'AI modülümüz, sadece olanı göstermez, olabilecekleri tahmin ederek sizi risklere karşı korur.'
+    notes: 'Yapay zeka katmanımız, insan gözünden kaçabilecek finansal ve operasyonel hataları tespit eder.'
   },
   {
     id: 12,
     type: 'content',
-    tag: 'ENTEGRASYON',
+    bg: '/bg12.png',
+    tag: 'DONANIM',
     title: 'Opsiyonel Entegrasyonlar',
+    subtitle: 'Sanal ve Fiziksel Dünyanın Birleşimi',
     items: [
-      { icon: <CreditCard />, text: 'NFC Kart: Görev ve yetki kontrol sistemleri.' },
-      { icon: <Box />, text: 'Barkod: Depo & Stok donanım entegrasyonu.' },
-      { icon: <LayoutDashboard />, text: 'Kasa: Satış noktası (POS) uygulamaları.' },
-      { icon: <Video />, text: 'Güvenlik: Kamera sistemleri tek panel izleme.' },
-      { icon: <Fingerprint />, text: 'Biometrik: Parmak izi/Yüz tanıma giriş-çıkış takip.' }
+      { icon: <CreditCard />, text: 'NFC Kart: Yetki ve görev kontrol sistemleri.' },
+      { icon: <PackageSearch />, text: 'Barkod & El Terminali: Hızlı depo süreçleri.' },
+      { icon: <Smartphone />, text: 'Yeni nesil Kasa/POS cihazı tam entegrasyonu.' },
+      { icon: <Video />, text: 'IP Kamera: Mağaza içi görüntüleme ve analiz.' },
+      { icon: <Fingerprint />, text: 'Personel devam kontrol sistemleri (PDKS).' }
     ],
-    notes: 'Donanım tarafında da yanınızdayız. Mevcut donanımlarınızla veya önerdiğimiz yeni nesil cihazlarla tam entegre çalışıyoruz.'
+    notes: 'Donanım bağımsız yapımız sayesinde mevcut cihazlarınızı sisteme kolayca entegre edebiliriz.'
   },
   {
     id: 13,
     type: 'content',
-    bg: '/media1.png',
-    tag: 'AVANTAJLAR',
+    bg: '/bg13.png',
+    tag: 'DEĞER ÖNERİSİ',
     title: 'Sağladığı Faydalar',
+    subtitle: 'Neden JUMBO CRM?',
     items: [
-      { icon: <Zap />, text: 'Operasyonel maliyetlerde ciddi düşüş.' },
-      { icon: <Target />, text: 'Hızlı ve veriye dayalı doğru karar alma.' },
-      { icon: <ShieldCheck />, text: 'Şeffaf, izlenebilir ve güvenli süreçler.' },
-      { icon: <TrendingUp />, text: 'Sürdürülebilir kârlılık artışı.' },
-      { icon: <CheckCircle2 />, text: 'İnsan hatalarının ve suistimallerin minimuma indirilmesi.' }
+      { icon: <Award />, text: '%25'e varan operasyonel maliyet tasarrufu.' },
+      { icon: <Zap />, text: 'Süreçlerde hız ve manuel iş yükünde azalma.' },
+      { icon: <ShieldCheck />, text: 'Kurumsal hafıza ve şeffaf veri akışı.' },
+      { icon: <TrendingUp />, text: 'Veriye dayalı yönetimle kârlılık artışı.' },
+      { icon: <CheckCircle2 />, text: 'İnsan hatalarının minimuma çekilmesi.' }
     ],
-    notes: 'Sistem kurulumundan kısa bir süre sonra verimlilik artışını ve maliyetlerin kontrol altına alındığını net şekilde göreceksiniz.'
+    notes: 'JUMBO CRM bir maliyet değil, kendisini kısa sürede amorti eden stratejik bir yatırımdır.'
   },
   {
     id: 14,
     type: 'content',
-    tag: 'SONUÇ',
+    bg: '/bg14.png',
+    tag: 'ÖZET',
     title: 'Tek Platform – Tam Kontrol',
-    subtitle: 'Geleceğin Yönetim Standardı',
+    subtitle: 'Her Şey Tek Bir Çatı Altında',
     items: [
-      { icon: <LayoutDashboard />, text: 'Yönetim & Finans & İK' },
-      { icon: <Box />, text: 'Stok & Şube & Raporlama' },
-      { icon: <ShieldCheck />, text: 'Hepsi tek sistemde, güvenli ve ölçeklenebilir.' }
+      { icon: <LayoutDashboard />, text: 'Uçtan uca tüm departmanların entegrasyonu.' },
+      { icon: <Cpu />, text: 'Güçlü teknoloji ve yapay zeka altyapısı.' },
+      { icon: <ShieldCheck />, text: 'Güvenli, ölçeklenebilir ve sürdürülebilir çözüm.' }
     ],
-    notes: 'Özetle JUMBO CRM; dağınık yapıları toplar, karmaşayı çözer ve size sadece şirketinizin büyümesine odaklanma fırsatı verir.'
+    notes: 'İşinizi karmaşadan kurtarın. JUMBO CRM ile geleceği bugünden yönetmeye başlayın.'
   },
   {
     id: 15,
     type: 'cover',
-    bg: '/media0.png',
-    title: 'Teşekkürler',
-    subtitle: 'Sorularınız için memnuniyetle yardımcı oluruz.',
+    bg: '/bg15.png',
+    tag: 'İLETİŞİM',
+    title: 'Teşekkür Ederiz',
+    subtitle: 'Sorularınız ve Demo Talepleriniz İçin Buradayız',
     author: 'JUMBO CRM SOLUTIONS',
-    date: 'Geleceği Birlikte Yönetelim',
-    notes: 'Sunumumuzu dinlediğiniz için teşekkürler. Şimdi sorularınızı alabiliriz veya isterseniz canlı bir demo gerçekleştirebiliriz.'
+    date: 'February 2026',
+    notes: 'Zaman ayırdığınız için teşekkürler. Şirketinize özel iş akışlarını netleştirmek için demo sürecini başlatmaya hazırız.'
   }
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } }
+};
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -253,87 +289,98 @@ function App() {
 
   return (
     <div className={`presentation-container ${showNotes ? 'notes-active' : ''}`}>
+      {/* Background Orbs */}
+      <div className="glow-orb glow-1"></div>
+      <div className="glow-orb glow-2"></div>
+
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className={`slide active ${slide.type === 'cover' ? 'cover-slide' : ''}`}
-          style={slide.bg ? { 
-            backgroundImage: `linear-gradient(rgba(10, 11, 16, 0.8), rgba(10, 11, 16, 0.85)), url(${slide.bg})`,
+          initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="slide active"
+          style={{ 
+            backgroundImage: `linear-gradient(rgba(5, 6, 10, 0.75), rgba(5, 6, 10, 0.85)), url(${slide.bg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
-          } : {}}
+          }}
         >
           <div className="slide-content">
-            {slide.tag && (
-              <motion.span 
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                className="tag"
-              >
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.span variants={itemVariants} className="tag">
                 {slide.tag}
               </motion.span>
-            )}
-            
-            {slide.type === 'cover' ? (
-              <motion.div 
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="animate-fade-in"
+              
+              <motion.h1 
+                variants={itemVariants} 
+                style={slide.type !== 'cover' ? { fontSize: '3.5rem', textTransform: 'none', letterSpacing: '-1px' } : {}}
               >
-                <h1>{slide.title}</h1>
-                <p style={{ fontSize: '1.8rem', color: 'var(--accent-primary)', marginBottom: '3rem' }}>{slide.subtitle}</p>
-                {slide.items && (
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
-                    {slide.items.map((item, i) => (
-                      <div key={i} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(255,255,255,0.03)' }}>
-                        <div style={{ color: 'var(--accent-primary)' }}>{item.icon}</div>
-                        <span style={{ fontSize: '1rem', fontWeight: 500 }}>{item.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                <div style={{ marginTop: '4rem', opacity: 0.7 }}>
-                  <h3 style={{ color: 'white' }}>{slide.author}</h3>
-                  <p style={{ fontSize: '1rem' }}>{slide.date}</p>
-                </div>
-              </motion.div>
-            ) : (
-              <div className="animate-fade-in">
-                <motion.h2 
-                  initial={{ x: -30, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
+                {slide.title}
+              </motion.h1>
+
+              {slide.subtitle && (
+                <motion.p 
+                  variants={itemVariants}
+                  style={{ fontSize: '1.6rem', color: 'var(--accent-primary)', marginBottom: '3rem', fontWeight: 500 }}
                 >
-                  {slide.title}
-                </motion.h2>
-                {slide.subtitle && <p style={{ fontSize: '1.5rem', marginBottom: '2rem', color: 'var(--text-secondary)' }}>{slide.subtitle}</p>}
-                
-                <div className="glass-card">
+                  {slide.subtitle}
+                </motion.p>
+              )}
+              
+              {slide.type === 'cover' ? (
+                <motion.div 
+                  variants={containerVariants}
+                  style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}
+                >
+                  {slide.items.map((item, i) => (
+                    <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(255,255,255,0.02)' }}>
+                      <div style={{ color: 'var(--accent-primary)' }}>{item.icon}</div>
+                      <span style={{ fontSize: '1rem', fontWeight: 600 }}>{item.text}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              ) : (
+                <motion.div variants={itemVariants} className="glass-card">
                   <div className="grid-2">
                     {slide.items.map((item, i) => (
                       <motion.div 
                         key={i} 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
+                        variants={itemVariants}
+                        whileHover={{ x: 10, transition: { duration: 0.2 } }}
                         style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem', alignItems: 'flex-start' }}
                       >
-                        <div style={{ padding: '1rem', background: 'rgba(0, 242, 254, 0.1)', border: '1px solid rgba(0, 242, 254, 0.2)', borderRadius: '12px', color: 'var(--accent-primary)' }}>
-                          {item.icon}
+                        <div style={{ 
+                          padding: '1.2rem', 
+                          background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1))', 
+                          border: '1px solid rgba(0, 242, 254, 0.2)', 
+                          borderRadius: '20px', 
+                          color: 'var(--accent-primary)',
+                          boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                        }}>
+                          {React.cloneElement(item.icon, { size: 28 })}
                         </div>
-                        <div>
-                          <p style={{ color: 'white', marginBottom: '0.2rem', fontWeight: 500, fontSize: '1.2rem' }}>{item.text}</p>
+                        <div style={{ paddingTop: '0.4rem' }}>
+                          <p style={{ color: 'white', fontWeight: 500, fontSize: '1.3rem', lineHeight: 1.4 }}>{item.text}</p>
                         </div>
                       </motion.div>
                     ))}
                   </div>
+                </motion.div>
+              )}
+
+              {slide.type === 'cover' && slide.id === 15 && (
+                 <div style={{ marginTop: '3rem', opacity: 0.7 }}>
+                  <p style={{ fontSize: '1.2rem', color: '#fff' }}>{slide.author}</p>
+                  <p style={{ fontSize: '1rem' }}>{slide.date}</p>
                 </div>
-              </div>
-            )}
+              )}
+            </motion.div>
           </div>
         </motion.div>
       </AnimatePresence>
@@ -345,8 +392,19 @@ function App() {
         <button className="nav-btn" onClick={prevSlide} disabled={currentSlide === 0}>
           <ChevronLeft size={32} />
         </button>
-        <div style={{ background: 'var(--glass-bg)', padding: '0 1rem', borderRadius: '50px', display: 'flex', alignItems: 'center', fontSize: '0.9rem', border: '1px solid var(--glass-border)' }}>
-          {currentSlide + 1} / {slides.length}
+        <div style={{ 
+          background: 'rgba(255, 255, 255, 0.05)', 
+          padding: '0 1.5rem', 
+          height: '56px',
+          borderRadius: '16px', 
+          display: 'flex', 
+          alignItems: 'center', 
+          fontSize: '1rem', 
+          fontWeight: 600,
+          border: '1px solid var(--glass-border)',
+          color: 'var(--accent-primary)'
+        }}>
+          {currentSlide + 1} <span style={{ opacity: 0.4, margin: '0 0.5rem' }}>/</span> {slides.length}
         </div>
         <button className="nav-btn" onClick={nextSlide} disabled={currentSlide === slides.length - 1}>
           <ChevronRight size={32} />
@@ -355,16 +413,26 @@ function App() {
 
       <div className="progress-bar" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
 
-      <motion.div 
-        className="speak-notes"
-        initial={false}
-        animate={{ opacity: showNotes ? 1 : 0, y: showNotes ? 0 : 20 }}
-      >
-        <h4 style={{ color: 'var(--accent-primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <MessageSquare size={16} /> Sunum Notları
-        </h4>
-        <p style={{ fontSize: '0.9rem', lineHeight: '1.5', margin: 0, color: '#eee' }}>{slide.notes}</p>
-      </motion.div>
+      <AnimatePresence>
+        {showNotes && (
+          <motion.div 
+            className="speak-notes"
+            initial={{ opacity: 0, x: -50, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -50, scale: 0.9 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 100 }}
+          >
+            <h4 style={{ color: 'var(--accent-primary)', marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.2rem' }}>
+              <MessageSquare size={20} /> Sunum Notları
+            </h4>
+            <p style={{ fontSize: '1rem', lineHeight: '1.6', margin: 0, color: '#ddd' }}>{slide.notes}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      <div style={{ position: 'fixed', top: '2.5rem', left: '2.5rem', z-index: 100, opacity: 0.5 }}>
+         <Building2 color="#fff" size={32} />
+      </div>
     </div>
   );
 }
