@@ -208,7 +208,7 @@ const slides = [
     title: 'Sağladığı Faydalar',
     subtitle: 'Neden JUMBO CRM?',
     items: [
-      { icon: <Award />, text: '%25'e varan operasyonel maliyet tasarrufu.' },
+      { icon: <Award />, text: "%25'e varan operasyonel maliyet tasarrufu." },
       { icon: <Zap />, text: 'Süreçlerde hız ve manuel iş yükünde azalma.' },
       { icon: <ShieldCheck />, text: 'Kurumsal hafıza ve şeffaf veri akışı.' },
       { icon: <TrendingUp />, text: 'Veriye dayalı yönetimle kârlılık artışı.' },
@@ -430,7 +430,7 @@ function App() {
         )}
       </AnimatePresence>
       
-      <div style={{ position: 'fixed', top: '2.5rem', left: '2.5rem', z-index: 100, opacity: 0.5 }}>
+      <div style={{ position: 'fixed', top: '2.5rem', left: '2.5rem', zIndex: 100, opacity: 0.5 }}>
          <Building2 color="#fff" size={32} />
       </div>
     </div>
