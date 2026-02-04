@@ -4,8 +4,10 @@ import {
   ChevronLeft, ChevronRight, MessageSquare, LayoutDashboard, Users, Box, MapPin, 
   Calculator, BarChart3, Brain, Building2, ShieldCheck, Smartphone, Code2, 
   CheckCircle2, Target, Layers, Zap, Video, Fingerprint, CreditCard, PackageSearch, 
-  TrendingUp, Wallet, FileText, Globe, Cpu, Award
+  TrendingUp, Wallet, FileText, Globe, Cpu, Award, ArrowRightCircle, ArrowLeftCircle
 } from 'lucide-react';
+
+// ... (slides array remains same as before)
 
 const slides = [
   {
@@ -277,16 +279,19 @@ const itemVariants = {
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
+  const [showInSlidePreview, setShowInSlidePreview] = useState(false);
 
   const nextSlide = () => {
     if (currentSlide < slides.length - 1) {
       setCurrentSlide(prev => prev + 1);
+      setShowInSlidePreview(false);
     }
   };
 
   const prevSlide = () => {
     if (currentSlide > 0) {
       setCurrentSlide(prev => prev - 1);
+      setShowInSlidePreview(false);
     }
   };
 
@@ -331,9 +336,31 @@ function App() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              style={slide.id === 16 ? { display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' } : {}}
+              style={(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) ? { display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' } : {}}
             >
-              <div className="text-side">
+              <div className="text-side" style={{ position: 'relative' }}>
+                {slide.id === 5 && (
+                  <motion.button
+                    whileHover={{ scale: 1.1, x: 5 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setShowInSlidePreview(!showInSlidePreview)}
+                    style={{
+                      position: 'absolute',
+                      right: '-100px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      color: 'var(--accent-primary)',
+                      zIndex: 10
+                    }}
+                    title={showInSlidePreview ? "Görseli Kapat" : "Görseli Göster"}
+                  >
+                    {showInSlidePreview ? <ArrowLeftCircle size={48} /> : <ArrowRightCircle size={48} />}
+                  </motion.button>
+                )}
+                
                 <motion.span variants={itemVariants} className="tag">
                   {slide.tag}
                 </motion.span>
@@ -367,8 +394,8 @@ function App() {
                     ))}
                   </motion.div>
                 ) : (
-                  <motion.div variants={itemVariants} className="glass-card" style={slide.id === 16 ? { padding: '2rem' } : {}}>
-                    <div className={slide.id === 16 ? "grid-1" : "grid-2"}>
+                  <motion.div variants={itemVariants} className="glass-card" style={(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) ? { padding: '2rem' } : {}}>
+                    <div className={(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) ? "grid-1" : "grid-2"}>
                       {slide.items && slide.items.map((item, i) => (
                         <motion.div 
                           key={i} 
@@ -396,15 +423,16 @@ function App() {
                 )}
               </div>
 
-              {slide.id === 16 && (
+              {(slide.id === 16 || (slide.id === 5 && showInSlidePreview)) && (
                 <motion.div 
                   initial={{ x: 100, opacity: 0, rotateY: -20 }}
                   animate={{ x: 0, opacity: 1, rotateY: 0 }}
-                  transition={{ delay: 0.5, duration: 1 }}
+                  exit={{ x: 100, opacity: 0, rotateY: -20 }}
+                  transition={{ delay: 0.1, duration: 0.8 }}
                   style={{ perspective: '1000px' }}
                 >
                   <img 
-                    src={slide.bg} 
+                    src={slide.id === 5 ? "/dashboard_preview.jpg" : slide.bg} 
                     alt="Dashboard Preview" 
                     style={{ 
                       width: '100%', 
