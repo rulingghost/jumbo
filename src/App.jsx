@@ -166,7 +166,7 @@ const slides = [
       { icon: <CheckCircle2 />, text: 'Yöneticiye özel dinamik dashboard tasarımları.' },
       { icon: <Smartphone />, text: 'Otomatik periyodik rapor gönderimi (Email/Sms).' }
     ],
-    notes: 'Raporlarımız, dakikalarca bekleten Excel'lerin yerini alan, saniyeler içinde üretilen canlı verilerdir.'
+    notes: "Raporlarımız, dakikalarca bekleten Excel'lerin yerini alan, saniyeler içinde üretilen canlı verilerdir."
   },
   {
     id: 11,
