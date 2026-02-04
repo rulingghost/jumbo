@@ -462,21 +462,23 @@ function App() {
 
               {slide.id === 16 && (
                 <motion.div 
-                  initial={{ x: 100, opacity: 0, rotateY: -20 }}
-                  animate={{ x: 0, opacity: 1, rotateY: 0 }}
-                  exit={{ x: 100, opacity: 0, rotateY: -20 }}
-                  transition={{ delay: 0.1, duration: 0.8 }}
-                  style={{ perspective: '1000px' }}
+                  initial={{ x: 100, opacity: 0, scale: 0.8 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  style={{ 
+                    width: '100%', 
+                    height: '600px', 
+                    borderRadius: '24px', 
+                    overflow: 'hidden',
+                    boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    background: '#000'
+                  }}
                 >
-                  <img 
-                    src={slide.bg} 
-                    alt="Dashboard Preview" 
-                    style={{ 
-                      width: '100%', 
-                      borderRadius: '24px', 
-                      boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
-                      border: '1px solid rgba(255,255,255,0.1)'
-                    }} 
+                  <iframe 
+                    src="/jumbo/index.html" 
+                    title="Jumbo Project" 
+                    style={{ width: '100%', height: '100%', border: 'none' }}
                   />
                 </motion.div>
               )}

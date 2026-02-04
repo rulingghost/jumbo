@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumbo Prestige v11 | Global Operations Matrix</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- V11 Frameworks -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    
+    <!-- Base styles -->
+    <link rel="stylesheet" href="style_enterprise.css?v=2.3">
+    <!-- Prestige Design System v11 -->
+    <link rel="stylesheet" href="style_enterprise_v11.css?v=2.3">
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="v11-loader-spin"></div>
+            <h2>JUMBO PRESTIGE V11</h2>
+            <p>Stabilizing 1000 Global Nodes & Neural Matrix</p>
+        </div>
+    </div>
+
+    <div id="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <i class="fas fa-gem"></i>
+                    <span>JUMBO PRESTIGE</span>
+                </div>
+                <div class="global-kpis">
+                    <div class="kpi">
+                        <small>ACTIVE NODES</small>
+                        <strong id="totalStores">1000</strong>
+                    </div>
+                    <div class="kpi">
+                        <small>GLOBAL VOLUME</small>
+                        <strong id="totalRevenue" style="color: #10b981;">...</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-section">
+                <div class="search-bar">
+                    <!-- SEARCH ICON AS REQUESTED -->
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="masterSearch" placeholder="Node, Şehir veya Direktör Ara...">
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="sidebar-content" id="sidebarContent"></div>
+            
+            <div class="system-status">
+                <span class="pulse-dot"></span>
+                <span>Sistem Senkronize Ediliyor...</span>
+            </div>
+        </aside>
+
+        <main class="map-frame">
+            <div id="map"></div>
+            <div class="map-controls-top">
+                <div class="map-stat-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <div>
+                        <small>Fleet Performance</small>
+                        <span id="mapPerfAvg">%--</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="app_enterprise.js?v=2.3"></script>
+</body>
+</html>
