@@ -240,6 +240,21 @@ const slides = [
     author: 'SARFEA',
     date: 'February 2026',
     notes: 'Zaman ayırdığınız için teşekkürler. Şirketinize özel iş akışlarını netleştirmek için demo sürecini başlatmaya hazırız.'
+  },
+  {
+    id: 16,
+    type: 'content',
+    bg: '/dashboard_preview.jpg',
+    tag: 'ARAYÜZ ÖN İZLEME',
+    title: 'Kullanıcı Dostu Panel',
+    subtitle: 'Modern ve Erişilebilir Tasarım',
+    items: [
+      { icon: <LayoutDashboard />, text: 'Kişiselleştirilebilir ana sayfa mizanpajı.' },
+      { icon: <Zap />, text: 'Göz yormayan, yüksek kontrastlı dijital arayüz.' },
+      { icon: <Smartphone />, text: 'Her cihazdan (Tablet, PC, Mobil) kesintisiz erişim.' },
+      { icon: <CheckCircle2 />, text: 'Kullanıcı deneyimi (UX) odaklı hızlı işlem menüleri.' }
+    ],
+    notes: 'Sistemimizin arayüzü, en karmaşık verileri bile en sade haliyle sunacak şekilde tasarlanmıştır.'
   }
 ];
 
@@ -307,7 +322,8 @@ function App() {
               : `linear-gradient(rgba(5, 6, 10, 0.75), rgba(5, 6, 10, 0.85)), url(${slide.bg})`,
             backgroundSize: slide.id === 15 ? 'contain' : 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            filter: slide.id === 16 ? 'blur(15px) scale(1.1)' : 'none'
           }}
         >
           <div className="slide-content">
@@ -315,65 +331,88 @@ function App() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
+              style={slide.id === 16 ? { display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' } : {}}
             >
-              <motion.span variants={itemVariants} className="tag">
-                {slide.tag}
-              </motion.span>
-              
-              <motion.h1 
-                variants={itemVariants} 
-                style={slide.type !== 'cover' ? { fontSize: '3.5rem', textTransform: 'none', letterSpacing: '-1px' } : {}}
-              >
-                {slide.title}
-              </motion.h1>
+              <div className="text-side">
+                <motion.span variants={itemVariants} className="tag">
+                  {slide.tag}
+                </motion.span>
+                
+                <motion.h1 
+                  variants={itemVariants} 
+                  style={slide.type !== 'cover' ? { fontSize: '3.5rem', textTransform: 'none', letterSpacing: '-1px' } : {}}
+                >
+                  {slide.title}
+                </motion.h1>
 
-              {slide.subtitle && (
-                <motion.p 
-                  variants={itemVariants}
-                  style={{ fontSize: '1.6rem', color: 'var(--accent-primary)', marginBottom: '3rem', fontWeight: 500 }}
-                >
-                  {slide.subtitle}
-                </motion.p>
-              )}
-              
-              {slide.type === 'cover' ? (
-                <motion.div 
-                  variants={containerVariants}
-                  style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}
-                >
-                  {slide.items && slide.items.map((item, i) => (
-                    <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(255,255,255,0.02)' }}>
-                      <div style={{ color: 'var(--accent-primary)' }}>{item.icon}</div>
-                      <span style={{ fontSize: '1rem', fontWeight: 600 }}>{item.text}</span>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              ) : (
-                <motion.div variants={itemVariants} className="glass-card">
-                  <div className="grid-2">
+                {slide.subtitle && (
+                  <motion.p 
+                    variants={itemVariants}
+                    style={{ fontSize: '1.6rem', color: 'var(--accent-primary)', marginBottom: '3rem', fontWeight: 500 }}
+                  >
+                    {slide.subtitle}
+                  </motion.p>
+                )}
+
+                {slide.type === 'cover' ? (
+                  <motion.div 
+                    variants={containerVariants}
+                    style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}
+                  >
                     {slide.items && slide.items.map((item, i) => (
-                      <motion.div 
-                        key={i} 
-                        variants={itemVariants}
-                        whileHover={{ x: 10, transition: { duration: 0.2 } }}
-                        style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem', alignItems: 'flex-start' }}
-                      >
-                        <div style={{ 
-                          padding: '1.2rem', 
-                          background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1))', 
-                          border: '1px solid rgba(0, 242, 254, 0.2)', 
-                          borderRadius: '20px', 
-                          color: 'var(--accent-primary)',
-                          boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
-                        }}>
-                          {React.cloneElement(item.icon, { size: 28 })}
-                        </div>
-                        <div style={{ paddingTop: '0.4rem' }}>
-                          <p style={{ color: 'white', fontWeight: 500, fontSize: '1.3rem', lineHeight: 1.4 }}>{item.text}</p>
-                        </div>
+                      <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(255,255,255,0.02)' }}>
+                        <div style={{ color: 'var(--accent-primary)' }}>{item.icon}</div>
+                        <span style={{ fontSize: '1rem', fontWeight: 600 }}>{item.text}</span>
                       </motion.div>
                     ))}
-                  </div>
+                  </motion.div>
+                ) : (
+                  <motion.div variants={itemVariants} className="glass-card" style={slide.id === 16 ? { padding: '2rem' } : {}}>
+                    <div className={slide.id === 16 ? "grid-1" : "grid-2"}>
+                      {slide.items && slide.items.map((item, i) => (
+                        <motion.div 
+                          key={i} 
+                          variants={itemVariants}
+                          whileHover={{ x: 10, transition: { duration: 0.2 } }}
+                          style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem', alignItems: 'flex-start' }}
+                        >
+                          <div style={{ 
+                            padding: '1.2rem', 
+                            background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1))', 
+                            border: '1px solid rgba(0, 242, 254, 0.2)', 
+                            borderRadius: '20px', 
+                            color: 'var(--accent-primary)',
+                            boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                          }}>
+                            {React.cloneElement(item.icon, { size: 28 })}
+                          </div>
+                          <div style={{ paddingTop: '0.4rem' }}>
+                            <p style={{ color: 'white', fontWeight: 500, fontSize: '1.3rem', lineHeight: 1.4 }}>{item.text}</p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+
+              {slide.id === 16 && (
+                <motion.div 
+                  initial={{ x: 100, opacity: 0, rotateY: -20 }}
+                  animate={{ x: 0, opacity: 1, rotateY: 0 }}
+                  transition={{ delay: 0.5, duration: 1 }}
+                  style={{ perspective: '1000px' }}
+                >
+                  <img 
+                    src={slide.bg} 
+                    alt="Dashboard Preview" 
+                    style={{ 
+                      width: '100%', 
+                      borderRadius: '24px', 
+                      boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
+                      border: '1px solid rgba(255,255,255,0.1)'
+                    }} 
+                  />
                 </motion.div>
               )}
 
